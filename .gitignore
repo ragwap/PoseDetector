@@ -192,3 +192,8 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+runs/*
+pose_detector_mp.py
+pose_detector.ipynb
+yolo11n-pose.pt
