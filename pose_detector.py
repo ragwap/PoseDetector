@@ -6,8 +6,10 @@ import numpy as np
 model = YOLO("yolo11n-pose.pt")  # load an official model
 # model = YOLO("path/to/best.pt")  # load a custom model
 
+source = "https://youtu.be/omzd691qJGI?list=PLijFycbrI7jnfeqNATSO6dFf5KZmOivsN"
+
 # Predict with the model
-results = model.track(source=0, stream=True, show=True, save=True)  # predict on the webcam. the source can be a video file, online stream link or a webcam (0 for the default webcam)
+results = model.track(source=source, stream=True, show=True, save=True)  # predict on the webcam. the source can be a video file, online stream link or a webcam (0 for the default webcam)
 
 SKELETON = {
     0 : [1, 2],
@@ -23,8 +25,23 @@ SKELETON = {
     14 : [16]
 }
 
+# get the frame rate
+cap = cv2.VideoCapture(source)
+fps = cap.get(cv2.CAP_PROP_FPS)
+cap.release()
+
+if fps == 0.0:
+    fps = 5.0
+
+print(f"Frames per second (FPS): {fps}")
+
 fourcc = cv2.VideoWriter_fourcc(*'XVID')  # or 'MJPG', 'MP4V', etc.
-out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))  # adjust size/FPS
+
+# get first result to initialize writer
+first_result = next(results)  # get first frame
+frame = first_result.orig_img.copy()
+height, width = frame.shape[:2]
+out = cv2.VideoWriter('output.avi', fourcc, fps, (width, height))
 
 for result in results:
     frame = result.orig_img.copy()
