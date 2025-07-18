@@ -75,22 +75,6 @@ for result in results:
                         y2 = person_kpts[end][1].item()
 
                         cv2.line(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 0, 255), 2)
-
-
-            # for x, y in person_kpts:
-            #     x = int(x.item())
-            #     y = int(y.item())
-            #     cv2.circle(frame, (x, y), radius=5, color=(0, 255, 0), thickness=-1)
-# 
-            # for start, ends in SKELETON.items():
-            #     for end in ends:
-            #         x1 = person_kpts[start][0].item()
-            #         y1 = person_kpts[start][1].item()
-            #         x2 = person_kpts[end][0].item()
-            #         y2 = person_kpts[end][1].item()
-
-            #         cv2.line(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 0, 255), 2)
-
             
             # Midpoint of shoulders as "torso direction"
             neck = (left_shoulder + right_shoulder) / 2
@@ -109,9 +93,6 @@ for result in results:
             end_point = (nose_np + 50 * direction_unit.cpu().numpy()).astype(int)
             cv2.arrowedLine(frame, tuple(nose_np.astype(int)), tuple(end_point), (255, 0, 0), 2)
 
-
-            # # Label the person
-            # cv2.putText(frame, f'Person {i}', tuple(nose_np.astype(int)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
 
         except Exception as e:
             print(f"Error processing person {i}: {e}")
