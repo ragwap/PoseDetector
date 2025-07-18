@@ -43,8 +43,6 @@ for result in results:
         # Use nose (keypoint 0) and neck (keypoint 1 or shoulders average) to define head direction
         try:
             nose = person_kpts[0]
-            left_eye = person_kpts[1]
-            right_eye = person_kpts[2]
             left_shoulder = person_kpts[5]
             right_shoulder = person_kpts[6]
 
