@@ -15,3 +15,13 @@ pip3 install -r requirements.txt
 ```
 python3 pose_detector.py
 ```
+
+## Results
+
+As shown in the screenshots, videos with a large number of people can appear visually congested due to the overlapping detected poses and keypoints. However, when only a few individuals are present, the head directions and poses are displayed much more clearly. <br />
+
+<img title="1" src="Screenshot 2025-07-20 000407.png">
+<img title="2" src="Screenshot 2025-07-20 000524.png">
+<img title="3" src="Screenshot 2025-07-20 000752.png">
+<img title="4" src="Screenshot 2025-07-20 001048.png">
+<img title="5" src="Screenshot 2025-07-20 001556.png">
