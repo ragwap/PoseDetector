@@ -9,7 +9,11 @@ import time
 model = YOLO("yolo11n-pose.pt")  # load an official model
 # model = YOLO("path/to/best.pt")  # load a custom model
 
-source = "https://youtu.be/omzd691qJGI?list=PLijFycbrI7jnfeqNATSO6dFf5KZmOivsN"
+# source = "https://youtu.be/omzd691qJGI?list=PLijFycbrI7jnfeqNATSO6dFf5KZmOivsN"
+# source = "3722009-hd_1920_1080_24fps.mp4"
+# source = "https://www.youtube.com/watch?v=P0wNIsAjht8"
+# source = "https://www.youtube.com/watch?v=YSul9yrAvN4"
+source = "https://www.youtube.com/watch?v=VkBnNxneA_A"
 # source = 0
 
 # Predict with the model
@@ -35,7 +39,7 @@ fps = cap.get(cv2.CAP_PROP_FPS)
 cap.release()
 
 if fps == 0.0:
-    fps = 5.0
+    fps = 1.0
 
 print(f"Frames per second (FPS): {fps}")
 

@@ -197,3 +197,6 @@ runs/*
 pose_detector_mp.py
 pose_detector.ipynb
 yolo11n-pose.pt
+3722009-hd_1920_1080_24fps.mp4
+head_direction_log.csv
+output.avi
